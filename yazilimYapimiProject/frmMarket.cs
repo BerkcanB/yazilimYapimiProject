@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -22,8 +16,9 @@ namespace yazilimYapimiProject
         {
             FrmLoad();
         }
-        User us = new User();
-        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-3PS3P83\\BERKCANSERVER;Initial Catalog=yazilimYapimi;Integrated Security=True");
+
+        readonly User us = new User();
+        readonly SqlConnection connection = new SqlConnection("Data Source=DESKTOP-3PS3P83\\BERKCANSERVER;Initial Catalog=yazilimYapimi;Integrated Security=True");
 
         void FillDGV()
         {
@@ -38,7 +33,7 @@ namespace yazilimYapimiProject
             adapt.Fill(dt);
             dgvMarket.DataSource = dt;
 
-        }
+        }//Fills the datagridview with market products
         void ShowMoney()
         {
             SqlCommand commandShowMoney = new SqlCommand
@@ -59,7 +54,7 @@ namespace yazilimYapimiProject
                 lblMoney.Text = dr.GetValue(0) + " $";
             }
             dr.Close();
-        }
+        }//Shows money 
         void FillCbx()
         {
             SqlCommand commandFillCbb = new SqlCommand
@@ -74,13 +69,44 @@ namespace yazilimYapimiProject
                 cbxProduct.Items.Add(dr2["ItemName"].ToString());
 
             }
+            dr2.Close();
+        }//Shows Products in Combobox
+        void FillFilterCBB()
+        {
+            SqlCommand commandFillCbb = new SqlCommand
+            {
+                Connection = connection,
+                CommandText = "Select ItemName from tbl_Items"
+            };
+
+            SqlDataReader dr2 = commandFillCbb.ExecuteReader();
+            while (dr2.Read())
+            {
+                cbbFilter.Items.Add(dr2["ItemName"].ToString());
+
+            }
+            dr2.Close();
+        }//Shows Products in Combobox
+        void FillDGVwithFilter()
+        {
+            SqlCommand commandShow = new SqlCommand
+            {
+                Connection = connection,
+                CommandText = "Execute ShowMarketProductsFilter "+cbbFilter.SelectedIndex
+            };
+            SqlDataAdapter adapt = new SqlDataAdapter(commandShow);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            dgvMarket.DataSource = dt;
         }
         private void FrmLoad()
         {
+            cbbFilter.Items.Add("Show All");
             connection.Open();
-            FillDGV();//Fill datagridview from tbl_Market
-            ShowMoney();//Show Money from tbl_Moneys
-            FillCbx();//Fill combobox from tbl_Items
+            FillDGV();
+            ShowMoney();
+            FillCbx();
+            FillFilterCBB();
             connection.Close();
         }
 
@@ -90,7 +116,7 @@ namespace yazilimYapimiProject
             SqlCommand commandBuy = new SqlCommand
             {
                 Connection = connection,
-                CommandText="Execute BuyProduct "+us.UserID+","+(cbxProduct.SelectedIndex+1)+","+txtAmount.Text
+                CommandText="Execute BuyProduct "+us.UserID+","+(cbxProduct.SelectedIndex+1)+","+txtAmount.Text//This stored procedure was the hardest
             };
             commandBuy.ExecuteNonQuery();
             connection.Close();
@@ -99,6 +125,21 @@ namespace yazilimYapimiProject
         {
             BuyProduct();
             FrmLoad();
+        }
+
+        private void cbbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            if (cbbFilter.SelectedIndex==0)//Shows all products
+            {
+                FillDGV();
+            }
+            else//Shows selected product
+            {
+                FillDGVwithFilter();
+            }
+            connection.Close();
         }
     }
 }
