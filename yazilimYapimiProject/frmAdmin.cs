@@ -64,7 +64,6 @@ namespace yazilimYapimiProject
         private void BtnAccept_Click(object sender, EventArgs e)//type will be used for "ShowProductRequests" sql stored procedure
         {                                                       //type define request type. 1 is 
             int type;
-            MessageBox.Show(cbxAdmin.SelectedIndex.ToString());
             if(cbxAdmin.SelectedIndex == 0)//If Selected Index is Product Request, type will be 1
             {
                 type = 1;

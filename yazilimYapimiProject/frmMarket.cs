@@ -22,7 +22,7 @@ namespace yazilimYapimiProject
 
         void FillDGV()
         {
-
+            connection.Open();
             SqlCommand commandShow = new SqlCommand
             {
                 Connection = connection,
@@ -32,10 +32,11 @@ namespace yazilimYapimiProject
             DataTable dt = new DataTable();
             adapt.Fill(dt);
             dgvMarket.DataSource = dt;
-
+            connection.Close();
         }//Fills the datagridview with market products
         void ShowMoney()
         {
+            connection.Open();
             SqlCommand commandShowMoney = new SqlCommand
             {
                 Connection = connection,
@@ -54,9 +55,11 @@ namespace yazilimYapimiProject
                 lblMoney.Text = dr.GetValue(0) + " $";
             }
             dr.Close();
+            connection.Close();
         }//Shows money 
         void FillCbx()
         {
+            connection.Open();
             SqlCommand commandFillCbb = new SqlCommand
             {
                 Connection = connection,
@@ -70,9 +73,11 @@ namespace yazilimYapimiProject
 
             }
             dr2.Close();
+            connection.Close();
         }//Shows Products in Combobox
         void FillFilterCBB()
         {
+            connection.Open();
             SqlCommand commandFillCbb = new SqlCommand
             {
                 Connection = connection,
@@ -86,9 +91,11 @@ namespace yazilimYapimiProject
 
             }
             dr2.Close();
+            connection.Close();
         }//Shows Products in Combobox
         void FillDGVwithFilter()
         {
+            connection.Open();
             SqlCommand commandShow = new SqlCommand
             {
                 Connection = connection,
@@ -98,16 +105,15 @@ namespace yazilimYapimiProject
             DataTable dt = new DataTable();
             adapt.Fill(dt);
             dgvMarket.DataSource = dt;
-        }
+            connection.Close();
+        }//Fills the datagridview with market products, filters by cbbfilter
         private void FrmLoad()
         {
             cbbFilter.Items.Add("Show All");
-            connection.Open();
             FillDGV();
             ShowMoney();
             FillCbx();
             FillFilterCBB();
-            connection.Close();
         }
 
         void BuyProduct()
@@ -124,14 +130,7 @@ namespace yazilimYapimiProject
         private void BtnBuy_Click(object sender, EventArgs e)
         {
             BuyProduct();
-            FrmLoad();
-        }
-
-        private void cbbFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            connection.Open();
-
-            if (cbbFilter.SelectedIndex==0)//Shows all products
+            if (cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1)//Shows all products
             {
                 FillDGV();
             }
@@ -139,7 +138,19 @@ namespace yazilimYapimiProject
             {
                 FillDGVwithFilter();
             }
-            connection.Close();
+            ShowMoney();//Updates money
+        }
+
+        private void cbbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbFilter.SelectedIndex==0 || cbbFilter.SelectedIndex == -1)//Shows all products
+            {
+                FillDGV();
+            }
+            else//Shows selected product
+            {
+                FillDGVwithFilter();
+            }
         }
     }
 }
