@@ -35,7 +35,6 @@ namespace yazilimYapimiProject
             dgvMyProducts.DataSource = dt;
 
         }
-
         void ShowMoney()
         {
             SqlCommand commandShowMoney = new SqlCommand
@@ -48,12 +47,11 @@ namespace yazilimYapimiProject
 
             if(!dr.HasRows)
             {
-                int money = 0;
-                lblMoney.Text = money + " $";
+                lblMoney.Text = "0 ₺";
             }
             else 
             {
-            lblMoney.Text = dr.GetValue(0) + " $";
+            lblMoney.Text = dr.GetValue(0) + " ₺";
             }
             dr.Close();
         }
@@ -138,7 +136,6 @@ namespace yazilimYapimiProject
             txtMoney.ResetText();
             connection.Close();
         }
-
 
         private void BtnAddProduct_Click(object sender, EventArgs e)
         {

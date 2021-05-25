@@ -29,7 +29,7 @@ namespace yazilimYapimiProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -132,12 +132,12 @@ namespace yazilimYapimiProject
             this.lblMoney.Name = "lblMoney";
             this.lblMoney.Size = new System.Drawing.Size(55, 60);
             this.lblMoney.TabIndex = 8;
-            this.lblMoney.Text = "$";
+            this.lblMoney.Text = "₺";
             // 
             // txtMoney
             // 
             this.txtMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtMoney.Location = new System.Drawing.Point(220, 340);
+            this.txtMoney.Location = new System.Drawing.Point(270, 340);
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(99, 30);
             this.txtMoney.TabIndex = 9;
@@ -147,7 +147,7 @@ namespace yazilimYapimiProject
             this.BtnAddMoney.BackColor = System.Drawing.Color.LimeGreen;
             this.BtnAddMoney.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAddMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAddMoney.Location = new System.Drawing.Point(220, 376);
+            this.BtnAddMoney.Location = new System.Drawing.Point(270, 376);
             this.BtnAddMoney.Name = "BtnAddMoney";
             this.BtnAddMoney.Size = new System.Drawing.Size(99, 41);
             this.BtnAddMoney.TabIndex = 10;
@@ -159,11 +159,11 @@ namespace yazilimYapimiProject
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(325, 339);
+            this.label6.Location = new System.Drawing.Point(375, 339);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 29);
             this.label6.TabIndex = 11;
-            this.label6.Text = "($)";
+            this.label6.Text = "(₺)";
             // 
             // dgvMyProducts
             // 
@@ -176,14 +176,14 @@ namespace yazilimYapimiProject
             this.ItemID,
             this.ItemName,
             this.ItemAmount});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMyProducts.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMyProducts.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMyProducts.Location = new System.Drawing.Point(17, 69);
             this.dgvMyProducts.MultiSelect = false;
             this.dgvMyProducts.Name = "dgvMyProducts";

@@ -20,13 +20,13 @@ namespace yazilimYapimiProject
         readonly User us = new User();
         readonly SqlConnection connection = new SqlConnection("Data Source=DESKTOP-3PS3P83\\BERKCANSERVER;Initial Catalog=yazilimYapimi;Integrated Security=True");
 
-        void FillDGV()
+        void FillDGV(int type)
         {
             connection.Open();
             SqlCommand commandShow = new SqlCommand
             {
                 Connection = connection,
-                CommandText = "Execute ShowMarketProducts " 
+                CommandText = "Execute ShowMarketProducts "+type 
             };
             SqlDataAdapter adapt = new SqlDataAdapter(commandShow);
             DataTable dt = new DataTable();
@@ -48,11 +48,11 @@ namespace yazilimYapimiProject
             if (!dr.HasRows)
             {
                 int money = 0;
-                lblMoney.Text = money + " $";
+                lblMoney.Text = money + " ₺";
             }
             else
             {
-                lblMoney.Text = dr.GetValue(0) + " $";
+                lblMoney.Text = dr.GetValue(0) + " ₺";
             }
             dr.Close();
             connection.Close();
@@ -93,13 +93,13 @@ namespace yazilimYapimiProject
             dr2.Close();
             connection.Close();
         }//Shows Products in Combobox
-        void FillDGVwithFilter()
+        void FillDGVwithFilter( int type)
         {
             connection.Open();
             SqlCommand commandShow = new SqlCommand
             {
                 Connection = connection,
-                CommandText = "Execute ShowMarketProductsFilter "+cbbFilter.SelectedIndex
+                CommandText = "Execute ShowMarketProductsFilter "+cbbFilter.SelectedIndex+","+type
             };
             SqlDataAdapter adapt = new SqlDataAdapter(commandShow);
             DataTable dt = new DataTable();
@@ -110,7 +110,7 @@ namespace yazilimYapimiProject
         private void FrmLoad()
         {
             cbbFilter.Items.Add("Show All");
-            FillDGV();
+            FillDGV(1);
             ShowMoney();
             FillCbx();
             FillFilterCBB();
@@ -119,12 +119,19 @@ namespace yazilimYapimiProject
         void BuyProduct()
         {
             connection.Open();
-            SqlCommand commandBuy = new SqlCommand
+            if(!CbxPrice.Checked)
+            { 
+                SqlCommand commandBuy = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandText="Execute BuyProduct "+us.UserID+","+(cbxProduct.SelectedIndex+1)+","+txtAmount.Text//This stored procedure was the hardest
+                };
+                commandBuy.ExecuteNonQuery();
+            }
+            else
             {
-                Connection = connection,
-                CommandText="Execute BuyProduct "+us.UserID+","+(cbxProduct.SelectedIndex+1)+","+txtAmount.Text//This stored procedure was the hardest
-            };
-            commandBuy.ExecuteNonQuery();
+
+            }
             connection.Close();
         }
         private void BtnBuy_Click(object sender, EventArgs e)
@@ -132,25 +139,55 @@ namespace yazilimYapimiProject
             BuyProduct();
             if (cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1)//Shows all products
             {
-                FillDGV();
+                FillDGV(1);
             }
             else//Shows selected product
             {
-                FillDGVwithFilter();
+                FillDGVwithFilter(1);
             }
             ShowMoney();//Updates money
+        }
+        void FillDGVfilterChanged()
+        {
+            if ((cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1) && (cbbmarketType.SelectedIndex == 0 || cbbmarketType.SelectedIndex == -1))//Shows Sales
+            {
+                FillDGV(1);
+            }
+            else if ((cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1) && cbbmarketType.SelectedIndex == 1)
+            {
+                FillDGV(2);
+            }
+            else if ((cbbFilter.SelectedIndex != 0 || cbbFilter.SelectedIndex != -1) && (cbbmarketType.SelectedIndex == 0 || cbbmarketType.SelectedIndex == -1))//Shows selected product
+            {
+                FillDGVwithFilter(1);
+            }
+            else
+            {
+                FillDGVwithFilter(2);
+            }
         }
 
         private void cbbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbFilter.SelectedIndex==0 || cbbFilter.SelectedIndex == -1)//Shows all products
+            FillDGVfilterChanged();
+        }
+
+        private void CbxPrice_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CbxPrice.Checked)
             {
-                FillDGV();
+                tbxPrice.Enabled = true;
             }
-            else//Shows selected product
+            else
             {
-                FillDGVwithFilter();
+                tbxPrice.ResetText();
+                tbxPrice.Enabled = false;
             }
+        }
+
+        private void cbbmarketType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillDGVfilterChanged();
         }
     }
 }

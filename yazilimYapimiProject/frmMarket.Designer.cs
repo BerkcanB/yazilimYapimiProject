@@ -29,8 +29,8 @@ namespace yazilimYapimiProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvMarket = new System.Windows.Forms.DataGridView();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +47,11 @@ namespace yazilimYapimiProject
             this.BtnBuy = new System.Windows.Forms.Button();
             this.cbbFilter = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.CbxPrice = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbxPrice = new System.Windows.Forms.TextBox();
+            this.cbbmarketType = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarket)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +60,14 @@ namespace yazilimYapimiProject
             this.dgvMarket.AllowUserToResizeColumns = false;
             this.dgvMarket.AllowUserToResizeRows = false;
             this.dgvMarket.BackgroundColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMarket.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMarket.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvMarket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMarket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserID,
@@ -71,14 +76,14 @@ namespace yazilimYapimiProject
             this.ItemName,
             this.ItemAmount,
             this.Price});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMarket.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMarket.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvMarket.Location = new System.Drawing.Point(12, 58);
             this.dgvMarket.MultiSelect = false;
             this.dgvMarket.Name = "dgvMarket";
@@ -154,7 +159,7 @@ namespace yazilimYapimiProject
             this.lblMoney.Name = "lblMoney";
             this.lblMoney.Size = new System.Drawing.Size(55, 60);
             this.lblMoney.TabIndex = 10;
-            this.lblMoney.Text = "$";
+            this.lblMoney.Text = "₺";
             // 
             // label4
             // 
@@ -170,10 +175,10 @@ namespace yazilimYapimiProject
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(211, 324);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(269, 338);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 39);
+            this.label2.Size = new System.Drawing.Size(93, 26);
             this.label2.TabIndex = 12;
             this.label2.Text = "Product:";
             // 
@@ -181,38 +186,38 @@ namespace yazilimYapimiProject
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(211, 378);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(269, 388);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 39);
+            this.label1.Size = new System.Drawing.Size(94, 26);
             this.label1.TabIndex = 13;
             this.label1.Text = "Amount:";
             // 
             // cbxProduct
             // 
-            this.cbxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxProduct.FormattingEnabled = true;
-            this.cbxProduct.Location = new System.Drawing.Point(360, 328);
+            this.cbxProduct.Location = new System.Drawing.Point(368, 338);
             this.cbxProduct.Name = "cbxProduct";
-            this.cbxProduct.Size = new System.Drawing.Size(141, 37);
+            this.cbxProduct.Size = new System.Drawing.Size(115, 30);
             this.cbxProduct.TabIndex = 14;
             // 
             // txtAmount
             // 
-            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtAmount.Location = new System.Drawing.Point(360, 382);
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAmount.Location = new System.Drawing.Point(368, 388);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(141, 36);
+            this.txtAmount.Size = new System.Drawing.Size(115, 28);
             this.txtAmount.TabIndex = 15;
             // 
             // BtnBuy
             // 
             this.BtnBuy.BackColor = System.Drawing.Color.LimeGreen;
             this.BtnBuy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBuy.Location = new System.Drawing.Point(577, 328);
+            this.BtnBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBuy.Location = new System.Drawing.Point(645, 328);
             this.BtnBuy.Name = "BtnBuy";
-            this.BtnBuy.Size = new System.Drawing.Size(189, 90);
+            this.BtnBuy.Size = new System.Drawing.Size(121, 90);
             this.BtnBuy.TabIndex = 16;
             this.BtnBuy.Text = "BUY";
             this.BtnBuy.UseVisualStyleBackColor = false;
@@ -232,17 +237,77 @@ namespace yazilimYapimiProject
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(583, 15);
+            this.label3.Location = new System.Drawing.Point(559, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 24);
+            this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Filter:";
+            this.label3.Text = "Product:";
+            // 
+            // CbxPrice
+            // 
+            this.CbxPrice.AutoSize = true;
+            this.CbxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbxPrice.Location = new System.Drawing.Point(563, 354);
+            this.CbxPrice.Name = "CbxPrice";
+            this.CbxPrice.Size = new System.Drawing.Size(75, 28);
+            this.CbxPrice.TabIndex = 19;
+            this.CbxPrice.Text = "Price";
+            this.CbxPrice.UseVisualStyleBackColor = true;
+            this.CbxPrice.CheckedChanged += new System.EventHandler(this.CbxPrice_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.Control;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(489, 390);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 26);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Price:";
+            // 
+            // tbxPrice
+            // 
+            this.tbxPrice.Enabled = false;
+            this.tbxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxPrice.Location = new System.Drawing.Point(563, 388);
+            this.tbxPrice.Name = "tbxPrice";
+            this.tbxPrice.Size = new System.Drawing.Size(76, 28);
+            this.tbxPrice.TabIndex = 21;
+            // 
+            // cbbmarketType
+            // 
+            this.cbbmarketType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbbmarketType.FormattingEnabled = true;
+            this.cbbmarketType.Items.AddRange(new object[] {
+            "Sales",
+            "Purchases"});
+            this.cbbmarketType.Location = new System.Drawing.Point(425, 12);
+            this.cbbmarketType.Name = "cbbmarketType";
+            this.cbbmarketType.Size = new System.Drawing.Size(121, 30);
+            this.cbbmarketType.TabIndex = 22;
+            this.cbbmarketType.SelectedIndexChanged += new System.EventHandler(this.cbbmarketType_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(300, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 24);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Market Type:";
             // 
             // frmMarket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 436);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbbmarketType);
+            this.Controls.Add(this.tbxPrice);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.CbxPrice);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbbFilter);
             this.Controls.Add(this.BtnBuy);
@@ -281,5 +346,10 @@ namespace yazilimYapimiProject
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.ComboBox cbbFilter;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox CbxPrice;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbxPrice;
+        private System.Windows.Forms.ComboBox cbbmarketType;
+        private System.Windows.Forms.Label label6;
     }
 }
