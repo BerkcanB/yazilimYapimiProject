@@ -110,7 +110,7 @@ namespace yazilimYapimiProject
         private void FrmLoad()
         {
             cbbFilter.Items.Add("Show All");
-            FillDGV(1);
+            FillDGV(0);
             ShowMoney();
             FillCbx();
             FillFilterCBB();
@@ -130,7 +130,12 @@ namespace yazilimYapimiProject
             }
             else
             {
-
+                SqlCommand commandBuyWithPrice = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandText = "Execute BuyProductWithPrice " + us.UserID + "," + (cbxProduct.SelectedIndex + 1) + "," + txtAmount.Text+","+Convert.ToDecimal(txtPrice.Text)//This stored procedure was the hardest
+                };
+                commandBuyWithPrice.ExecuteNonQuery();
             }
             connection.Close();
         }
@@ -139,11 +144,11 @@ namespace yazilimYapimiProject
             BuyProduct();
             if (cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1)//Shows all products
             {
-                FillDGV(1);
+                FillDGV(0);
             }
             else//Shows selected product
             {
-                FillDGVwithFilter(1);
+                FillDGVwithFilter(0);
             }
             ShowMoney();//Updates money
         }
@@ -151,19 +156,19 @@ namespace yazilimYapimiProject
         {
             if ((cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1) && (cbbmarketType.SelectedIndex == 0 || cbbmarketType.SelectedIndex == -1))//Shows Sales
             {
-                FillDGV(1);
+                FillDGV(0);
             }
             else if ((cbbFilter.SelectedIndex == 0 || cbbFilter.SelectedIndex == -1) && cbbmarketType.SelectedIndex == 1)
             {
-                FillDGV(2);
+                FillDGV(1);
             }
             else if ((cbbFilter.SelectedIndex != 0 || cbbFilter.SelectedIndex != -1) && (cbbmarketType.SelectedIndex == 0 || cbbmarketType.SelectedIndex == -1))//Shows selected product
             {
-                FillDGVwithFilter(1);
+                FillDGVwithFilter(0);
             }
             else
             {
-                FillDGVwithFilter(2);
+                FillDGVwithFilter(1);
             }
         }
 
@@ -176,12 +181,12 @@ namespace yazilimYapimiProject
         {
             if(CbxPrice.Checked)
             {
-                tbxPrice.Enabled = true;
+                txtPrice.Enabled = true;
             }
             else
             {
-                tbxPrice.ResetText();
-                tbxPrice.Enabled = false;
+                txtPrice.ResetText();
+                txtPrice.Enabled = false;
             }
         }
 

@@ -29,7 +29,7 @@ namespace yazilimYapimiProject
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -40,7 +40,6 @@ namespace yazilimYapimiProject
             this.lblMoney = new System.Windows.Forms.Label();
             this.txtMoney = new System.Windows.Forms.TextBox();
             this.BtnAddMoney = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.dgvMyProducts = new System.Windows.Forms.DataGridView();
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,8 @@ namespace yazilimYapimiProject
             this.txtAddProduct = new System.Windows.Forms.TextBox();
             this.BtnAddProduct = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblTL = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,19 +128,19 @@ namespace yazilimYapimiProject
             // 
             this.lblMoney.AutoSize = true;
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblMoney.Location = new System.Drawing.Point(12, 343);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(55, 60);
+            this.lblMoney.Size = new System.Drawing.Size(45, 50);
             this.lblMoney.TabIndex = 8;
             this.lblMoney.Text = "₺";
             // 
             // txtMoney
             // 
             this.txtMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtMoney.Location = new System.Drawing.Point(270, 340);
+            this.txtMoney.Location = new System.Drawing.Point(232, 343);
             this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Size = new System.Drawing.Size(99, 30);
+            this.txtMoney.Size = new System.Drawing.Size(100, 30);
             this.txtMoney.TabIndex = 9;
             // 
             // BtnAddMoney
@@ -147,23 +148,13 @@ namespace yazilimYapimiProject
             this.BtnAddMoney.BackColor = System.Drawing.Color.LimeGreen;
             this.BtnAddMoney.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAddMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAddMoney.Location = new System.Drawing.Point(270, 376);
+            this.BtnAddMoney.Location = new System.Drawing.Point(232, 376);
             this.BtnAddMoney.Name = "BtnAddMoney";
-            this.BtnAddMoney.Size = new System.Drawing.Size(99, 41);
+            this.BtnAddMoney.Size = new System.Drawing.Size(204, 41);
             this.BtnAddMoney.TabIndex = 10;
-            this.BtnAddMoney.Text = "Add";
+            this.BtnAddMoney.Text = "Add Money";
             this.BtnAddMoney.UseVisualStyleBackColor = false;
             this.BtnAddMoney.Click += new System.EventHandler(this.BtnAddMoney_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(375, 339);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 29);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "(₺)";
             // 
             // dgvMyProducts
             // 
@@ -176,14 +167,14 @@ namespace yazilimYapimiProject
             this.ItemID,
             this.ItemName,
             this.ItemAmount});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LimeGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMyProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LimeGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMyProducts.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMyProducts.Location = new System.Drawing.Point(17, 69);
             this.dgvMyProducts.MultiSelect = false;
             this.dgvMyProducts.Name = "dgvMyProducts";
@@ -283,18 +274,45 @@ namespace yazilimYapimiProject
             this.label8.TabIndex = 18;
             this.label8.Text = "Product:";
             // 
+            // lblTL
+            // 
+            this.lblTL.AutoSize = true;
+            this.lblTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTL.Location = new System.Drawing.Point(338, 344);
+            this.lblTL.Name = "lblTL";
+            this.lblTL.Size = new System.Drawing.Size(98, 29);
+            this.lblTL.TabIndex = 19;
+            this.lblTL.Text = "= 100 ₺";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Turkish Lira",
+            "US Dollar",
+            "Australian Dollar",
+            "Danish Krone",
+            "Euro",
+            "Pound Sterling"});
+            this.comboBox1.Location = new System.Drawing.Point(232, 305);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(204, 30);
+            this.comboBox1.TabIndex = 20;
+            // 
             // frmMyPresence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 436);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblTL);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.BtnAddProduct);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtAddProduct);
             this.Controls.Add(this.cbbAddProduct);
             this.Controls.Add(this.dgvMyProducts);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.BtnAddMoney);
             this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.lblMoney);
@@ -309,7 +327,6 @@ namespace yazilimYapimiProject
             this.MaximizeBox = false;
             this.Name = "frmMyPresence";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMyPresence";
             this.Load += new System.EventHandler(this.frmMyPresence_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyProducts)).EndInit();
             this.ResumeLayout(false);
@@ -328,7 +345,6 @@ namespace yazilimYapimiProject
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Button BtnAddMoney;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvMyProducts;
         private System.Windows.Forms.ComboBox cbbAddProduct;
         private System.Windows.Forms.Label label5;
@@ -339,5 +355,7 @@ namespace yazilimYapimiProject
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemAmount;
+        private System.Windows.Forms.Label lblTL;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

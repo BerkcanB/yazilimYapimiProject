@@ -20,7 +20,7 @@ namespace yazilimYapimiProject
 
         readonly User us = new User();
 
-        private void myPresenceToolStripMenuItem_Click(object sender, EventArgs e)//Show User Screen When MyPresence click
+        private void myPresenceToolStripMenuItem_Click(object sender, EventArgs e)//Shows User Screen When MyPresence click
         { 
             this.ActiveMdiChild.Close();
             frmMyPresence form = new frmMyPresence(us);
@@ -35,10 +35,17 @@ namespace yazilimYapimiProject
             form.Show();
         }
 
-        private void marketToolStripMenuItem_Click(object sender, EventArgs e)//Show Market Screen When market click
+        private void marketToolStripMenuItem_Click(object sender, EventArgs e)//Shows Market Screen When market click
         {
             this.ActiveMdiChild.Close();
             frmMarket form = new frmMarket(us);
+            form.MdiParent = this;
+            form.Show();
+        }
+        private void transactionHistoryToolStripMenuItem_Click(object sender, EventArgs e)//Shows Transaction History Screen When Transaction History click
+        {
+            this.ActiveMdiChild.Close();
+            frmTransactionHistory form = new frmTransactionHistory(us);
             form.MdiParent = this;
             form.Show();
         }
@@ -47,5 +54,6 @@ namespace yazilimYapimiProject
         {
             Application.Exit();
         }
+
     }
 }

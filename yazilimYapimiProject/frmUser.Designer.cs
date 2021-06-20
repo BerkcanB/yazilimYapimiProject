@@ -33,6 +33,7 @@ namespace yazilimYapimiProject
             this.myPresenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.marketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@ namespace yazilimYapimiProject
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.myPresenceToolStripMenuItem,
-            this.marketToolStripMenuItem});
+            this.marketToolStripMenuItem,
+            this.transactionHistoryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(791, 33);
@@ -63,6 +65,14 @@ namespace yazilimYapimiProject
             this.marketToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
             this.marketToolStripMenuItem.Text = "Market";
             this.marketToolStripMenuItem.Click += new System.EventHandler(this.marketToolStripMenuItem_Click);
+            // 
+            // transactionHistoryToolStripMenuItem
+            // 
+            this.transactionHistoryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.transactionHistoryToolStripMenuItem.Name = "transactionHistoryToolStripMenuItem";
+            this.transactionHistoryToolStripMenuItem.Size = new System.Drawing.Size(186, 29);
+            this.transactionHistoryToolStripMenuItem.Text = "Transaction History";
+            this.transactionHistoryToolStripMenuItem.Click += new System.EventHandler(this.transactionHistoryToolStripMenuItem_Click);
             // 
             // frmUser
             // 
@@ -91,5 +101,6 @@ namespace yazilimYapimiProject
         private System.Windows.Forms.ToolStripMenuItem myPresenceToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem marketToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transactionHistoryToolStripMenuItem;
     }
 }

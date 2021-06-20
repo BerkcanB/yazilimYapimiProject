@@ -123,6 +123,11 @@ namespace yazilimYapimiProject
             txtAddProduct.ResetText();
             connection.Close();
         }
+        int returnTurkishLira(int currencyUnit)//Multiplys the currency rate.
+        {
+
+            return 0;
+        }
         void AddMoney()
         {
             connection.Open();

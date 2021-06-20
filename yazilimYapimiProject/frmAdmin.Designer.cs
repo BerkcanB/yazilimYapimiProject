@@ -35,6 +35,8 @@ namespace yazilimYapimiProject
             this.RtnRefuse = new System.Windows.Forms.Button();
             this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.lblAdmin = new System.Windows.Forms.Label();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@ namespace yazilimYapimiProject
             // BtnAccept
             // 
             this.BtnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAccept.Location = new System.Drawing.Point(12, 344);
+            this.BtnAccept.Location = new System.Drawing.Point(360, 344);
             this.BtnAccept.Name = "BtnAccept";
             this.BtnAccept.Size = new System.Drawing.Size(196, 64);
             this.BtnAccept.TabIndex = 4;
@@ -100,11 +102,34 @@ namespace yazilimYapimiProject
             this.lblAdmin.TabIndex = 7;
             this.lblAdmin.Text = "Admin:";
             // 
+            // lblMoney
+            // 
+            this.lblMoney.AutoSize = true;
+            this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblMoney.Location = new System.Drawing.Point(22, 375);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(55, 60);
+            this.lblMoney.TabIndex = 12;
+            this.lblMoney.Text = "₺";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(12, 341);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 25);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "My Wallet";
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblMoney);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblAdmin);
             this.Controls.Add(this.dgvAdmin);
             this.Controls.Add(this.RtnRefuse);
@@ -130,5 +155,7 @@ namespace yazilimYapimiProject
         private System.Windows.Forms.Button RtnRefuse;
         private System.Windows.Forms.DataGridView dgvAdmin;
         private System.Windows.Forms.Label lblAdmin;
+        private System.Windows.Forms.Label lblMoney;
+        private System.Windows.Forms.Label label4;
     }
 }

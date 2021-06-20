@@ -60,6 +60,29 @@ namespace yazilimYapimiProject
             commandRequest.ExecuteNonQuery();
             connection.Close();
         }
+        void ShowMoney()
+        {
+            connection.Open();
+            SqlCommand commandShowMoney = new SqlCommand
+            {
+                Connection = connection,
+                CommandText = "Select MoneyAmount from tbl_Moneys where UserID= " + us.UserID
+            };
+            SqlDataReader dr = commandShowMoney.ExecuteReader();
+            dr.Read();
+
+            if (!dr.HasRows)
+            {
+                int money = 0;
+                lblMoney.Text = money + " ₺";
+            }
+            else
+            {
+                lblMoney.Text = dr.GetValue(0) + " ₺";
+            }
+            dr.Close();
+            connection.Close();
+        }//Shows money 
 
         private void BtnAccept_Click(object sender, EventArgs e)//type will be used for "ShowProductRequests" sql stored procedure
         {                                                       //type define request type. 1 is 
@@ -103,6 +126,7 @@ namespace yazilimYapimiProject
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             ShowAdminInfo();
+            ShowMoney();
             cbxAdmin.SelectedIndex = 0;
         }
     }
