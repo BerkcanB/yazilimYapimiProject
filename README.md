@@ -39,3 +39,45 @@ Story2(Admin admin)
    
   3. You can accept or refuse the request of your choice.
 }
+
+
+
+version:2.0
+
+Story1(User user)
+{
+  1. First of all, you open an account.
+  
+  2. On the login screen if you enter your informations correctly, the user screen opens.
+  
+    A. When MyPresence button clicked;
+      a. You can see your products,
+      b. You can sell your products(if other users ask for same price or high, same product programaticly sells to user),
+      c. You can add money with other currency units (with admin approval, sending some kind of request),
+      d. You can add products (with admin approval, sending some kind of request).
+    
+    B. When Market button clicked;
+      a. You can see products in market,
+      b. You can buy a product of your choice in quantity. Example;
+         -You want to buy 100 kg wheat. Jhon sells 50 kg of wheat for $ 1 and Emma sells 50 kg of wheat for $ 2.
+         Algorithm firstly buys 50 kg of wheat from 1 $ from Jhon. You spent $ 50.
+         Algorithm secondly buys 50 kg of wheat from 2 $ from Emma. You spent $ 100.
+         You spent exactly $ 150.
+      c. With v2.0 you can choose price. If not in the sales market, your request comes to purchase market.
+    C. When Transaction History button clicked;
+      a. You can see your transaction history,
+      b. You can change date range,
+      c. You can print a report .xls format.
+}
+
+Story2(Admin admin)
+{
+  1. On the login screen if you enter your informations correctly, the admin screen opens.
+  
+  2. You can choose which requests you want to see from combo box.
+    -Add money requests
+    -add product requests
+   
+  3. You can accept or refuse the request of your choice.
+  4. You can see your kickback from buy actions.
+}
