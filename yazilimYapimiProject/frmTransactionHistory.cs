@@ -22,7 +22,7 @@ namespace yazilimYapimiProject
         }
         readonly User us = new User();
         readonly SqlConnection connection = new SqlConnection("Data Source=DESKTOP-3PS3P83\\BERKCANSERVER;Initial Catalog=yazilimYapimi;Integrated Security=True");
-        void fillDGV()
+        void fillDGV()//Listed by first date and last date.
         {
             connection.Open();
             SqlCommand fillDGV = new SqlCommand
@@ -39,7 +39,7 @@ namespace yazilimYapimiProject
         void InsertToExcel()
         {
             sfdExcel.CreatePrompt = true;
-            sfdExcel.Filter = "Excel Dosyası|.xls";
+            sfdExcel.Filter = "Excel Dosyası|.xls";//File type     -v File Name
             sfdExcel.FileName = "Report " + dtpFirst.Value.Day + "-" + dtpFirst.Value.Month + "-" + dtpFirst.Value.Year + " -- " + dtpLast.Value.Day + "-" + dtpLast.Value.Month + "-" + dtpLast.Value.Year;
             sfdExcel.RestoreDirectory = true;
 
@@ -53,9 +53,11 @@ namespace yazilimYapimiProject
                 sheet.Cells.ColumnWidth = 18;
             }
             for (int i = 0; i < dgvHistory.Rows.Count - 1; i++)
-            {
+            { 
                 for (int j = 0; j < dgvHistory.Columns.Count; j++)
                 {
+                    if (j == 3)
+                        sheet.Cells.NumberFormat = "#,##.00_)";//Price format changed because excel writes 10x price
                     sheet.Cells[i + 2, j + 1] = dgvHistory.Rows[i].Cells[j].Value.ToString();
                 }
             }
@@ -68,17 +70,17 @@ namespace yazilimYapimiProject
             dtpLast.Value = DateTime.Now;
             fillDGV();
         }
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)//Creates a report
         {
             InsertToExcel();
         }
 
-        private void dtpFirst_ValueChanged(object sender, EventArgs e)
+        private void dtpFirst_ValueChanged(object sender, EventArgs e)//When first date changes
         {
             fillDGV();
         }
 
-        private void dtpLast_ValueChanged(object sender, EventArgs e)
+        private void dtpLast_ValueChanged(object sender, EventArgs e)//When last date changes
         {
             fillDGV();
         }

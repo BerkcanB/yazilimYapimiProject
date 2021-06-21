@@ -154,10 +154,10 @@ namespace yazilimYapimiProject
             // 
             this.lblMoney.AutoSize = true;
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblMoney.Location = new System.Drawing.Point(17, 362);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(55, 60);
+            this.lblMoney.Size = new System.Drawing.Size(38, 41);
             this.lblMoney.TabIndex = 10;
             this.lblMoney.Text = "₺";
             // 
