@@ -154,7 +154,7 @@ namespace yazilimYapimiProject
             SqlCommand commandAddMoney = new SqlCommand//Add Money request multiplied with currency rate
             {
                 Connection = connection,
-                CommandText = "insert into tbl_MoneyRequests(UserID,Amount) values (" + us.UserID + ", " + Convert.ToInt32(txtMoney.Text)*returnCurrencyRate(cbbMoney.SelectedIndex) + ")"
+                CommandText = "insert into tbl_MoneyRequests(UserID,Amount) values (" + us.UserID + ", " + (Convert.ToInt32(txtMoney.Text)*returnCurrencyRate(cbbMoney.SelectedIndex)).ToString().Replace(",", ".") + ")"
             };
             commandAddMoney.ExecuteNonQuery();
             MessageBox.Show("The request has been sent.", "Request");
