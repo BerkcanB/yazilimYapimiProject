@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Xml;
 
 namespace yazilimYapimiProject
 {
@@ -73,18 +74,19 @@ namespace yazilimYapimiProject
         }
         void FrmLoad()
         {
+            cbbMoney.SelectedIndex = 0;
+            txtMoney.Text = "0";
+            ShowTurkishLira();
             connection.Open();
             FillDGV();//Show info from tbl_UserItems
             ShowMoney();//Show money in label from tbl_Moneys
             FillCbb();//Fill the combobox from tbl_Items
             connection.Close();
         }
-
         private void frmMyPresence_Load(object sender, EventArgs e)
         {
             FrmLoad();
         }
-
         void Sell()
         {
             string itemID = dgvMyProducts.SelectedCells[1].Value.ToString();
@@ -123,38 +125,63 @@ namespace yazilimYapimiProject
             txtAddProduct.ResetText();
             connection.Close();
         }
-        int returnTurkishLira(int currencyUnit)//Multiplys the currency rate.
+        decimal returnCurrencyRate(int currencyUnit)//Multiplys the currency rate.
         {
+            String URLString = "https://www.tcmb.gov.tr/kurlar/today.xml";//URL
+            XmlTextReader reader = new XmlTextReader(URLString);//Creating reader
+            decimal multiplier = 0;//Creating multiplier
 
-            return 0;
+            if (currencyUnit==0)//If Turkish Lira
+            {
+                return 1;
+            }
+            else//If Another currency unit
+            { 
+                XmlDocument xml = new XmlDocument();
+                xml.Load(URLString);
+                multiplier= Convert.ToDecimal(xml.SelectSingleNode(string.Format("Tarih_Date/Currency[@Kod='{"+(currencyUnit-1)+"}']/ForexBuying", "USD","AUD", "DKK", "EUR","GBP")).InnerText.Replace('.', ','));
+                return multiplier;
+            }
+        }
+        void ShowTurkishLira()
+        {
+            decimal amount = returnCurrencyRate(cbbMoney.SelectedIndex) * Convert.ToInt32(txtMoney.Text);
+            lblTL.Text = "= " + amount.ToString() + " ₺";
         }
         void AddMoney()
         {
             connection.Open();
-            SqlCommand commandAddMoney = new SqlCommand
+            SqlCommand commandAddMoney = new SqlCommand//Add Money request multiplied with currency rate
             {
                 Connection = connection,
-                CommandText = "insert into tbl_MoneyRequests(UserID,Amount) values (" + us.UserID + ", " + txtMoney.Text + ")"
+                CommandText = "insert into tbl_MoneyRequests(UserID,Amount) values (" + us.UserID + ", " + Convert.ToInt32(txtMoney.Text)*returnCurrencyRate(cbbMoney.SelectedIndex) + ")"
             };
             commandAddMoney.ExecuteNonQuery();
             MessageBox.Show("The request has been sent.", "Request");
             txtMoney.ResetText();
             connection.Close();
         }
-
+        private void BtnSell_Click(object sender, EventArgs e)
+        {
+            Sell();
+        }
         private void BtnAddProduct_Click(object sender, EventArgs e)
         {
             AddProduct();
         }
-
         private void BtnAddMoney_Click(object sender, EventArgs e)
         {
             AddMoney();
         }
-
-        private void BtnSell_Click(object sender, EventArgs e)
+        private void txtMoney_TextChanged(object sender, EventArgs e)//Shows multiplier to Turkish Lira when label changed
         {
-            Sell();
+            if (txtMoney.Text == "")
+                txtMoney.Text = "0";
+            ShowTurkishLira();
+        }
+        private void cbbMoney_SelectedIndexChanged(object sender, EventArgs e)//Shows multiplier to Turkish Lira when cbb changed
+        {
+            ShowTurkishLira();
         }
     }
 }

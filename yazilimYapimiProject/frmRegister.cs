@@ -99,6 +99,7 @@ namespace yazilimYapimiProject
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
+            connection.Close();
             connection.Open();
             ControllerAndRegister();//Controls labels and Register User
         }
