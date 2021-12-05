@@ -44,7 +44,7 @@ Story2(Admin admin)
 
 version:2.0
 
-Story1(User user)
+Story2(User user)
 {
   1. First of all, you open an account.
   
